@@ -1,0 +1,241 @@
+    #dropzone-single {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 14rem; /* Equivalent to h-80 */
+            border: 4px dashed #d1d5db; /* Equivalent to border-4 border-dashed border-gray-300 */
+            border-radius: 0.75rem; /* Equivalent to rounded-xl */
+            text-align: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative; 
+            outline-offset: -5px;
+        }
+
+        #dropzone-single:hover {
+            border-color: #818cf8; /* Equivalent to hover:border-indigo-400 */
+            background-color: #eef2ff; /* Equivalent to hover:bg-indigo-50 */
+        }
+        
+        #dropzone-single.drag-active {
+            border-color: #4f46e5; /* Equivalent to border-indigo-500 */
+            background-color: #eef2ff; /* Equivalent to bg-indigo-50 */
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.5); /* Equivalent to ring-4 ring-indigo-500 */
+        }
+
+        /* Drop Zone - Preview Mode */
+        #dropzone-single.preview-mode {
+            border-style: solid;
+            border-width: 2px;
+            border-color: #d1d5db;
+            padding: 0;
+            display: block; 
+            background-color: #f9fafb;
+        }
+
+        /* Default Content Styling */
+        #default-content .icon {
+            width: 3rem; /* Equivalent to w-12 */
+            height: 3rem; /* Equivalent to h-12 */
+            color: #6366f1; /* Equivalent to text-indigo-500 */
+            margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+        }
+        #default-content .title {
+            font-size: 1.125rem; /* Equivalent to text-lg */
+            font-weight: 600; /* Equivalent to font-semibold */
+            color: #374151; /* Equivalent to text-gray-700 */
+        }
+        #default-content .title span {
+            color: #4f46e5; /* Equivalent to text-indigo-600 font-bold */
+            font-weight: 700;
+        }
+        #default-content .subtitle {
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            color: #6b7280; /* Equivalent to text-gray-500 */
+            margin-top: 0.25rem;
+        }
+
+        /* Preview Container & Image */
+        .preview-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .preview-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.75rem;
+        }
+
+        /* Remove Button Overlay (Hides the remove button until hover) */
+        .remove-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0.75rem; 
+        }
+        
+        #dropzone-single:hover .remove-overlay {
+            opacity: 1;
+        }
+        
+        /* Remove Button */
+        .remove-btn {
+            padding: 0.75rem; /* Equivalent to p-3 */
+            background-color: #dc2626; /* Equivalent to bg-red-600 */
+            color: white; 
+            border: none;
+            border-radius: 9999px; /* Equivalent to rounded-full */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+        }
+
+        .remove-btn:hover {
+            background-color: #b91c1c; /* Equivalent to hover:bg-red-700 */
+        }
+        
+        .remove-btn svg {
+            width: 1.5rem; /* Equivalent to w-6 */
+            height: 1.5rem; /* Equivalent to h-6 */
+        }
+
+        /* File Details Display */
+        #file-details {
+            margin-top: 1rem;
+            padding: 0.75rem; /* Equivalent to p-3 */
+            background-color: #eef2ff; /* Equivalent to bg-indigo-50 */
+            border: 1px solid #c7d2fe; /* Equivalent to border border-indigo-200 */
+            border-radius: 0.5rem; /* Equivalent to rounded-lg */
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            color: #4338ca; /* Equivalent to text-indigo-800 */
+        }
+
+        #file-details p {
+            font-weight: 600; /* Equivalent to font-semibold */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
+        
+        #file-details .info-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.25rem;
+            color: #4338ca;
+        }
+        
+        #file-details .info-row span {
+            font-weight: 700; /* Equivalent to font-bold */
+        }
+
+        /* Utility classes */
+        .hidden { display: none !important; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .w-full { width: 100%; }
+        .h-full { height: 100%; }
+        .mt-1 { margin-top: 0.25rem; }
+
+
+        .card h2 {
+            font-size: 20px;
+            color: #2a4d9c;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #2a4d9c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1d3673;
+        }
+
+        #pricing-calendar-display {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Calendar style tweaks */
+        .flatpickr-calendar.inline {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .flatpickr-day {
+            height: 50px;
+            line-height: 1.2;
+            padding-top: 6px;
+            font-weight: 500;
+        }
+
+        .price-day {
+            background-color: #e0f2fe !important;
+            border: 1px solid #3b82f6 !important;
+            color: #1e3a8a !important;
+            font-weight: 600 !important;
+        }
+
+        .price-day span {
+            display: block;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        #no-rules-message {
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+            margin-top: 10px;
+        }

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Itinerary Builder</title>
+    <!-- Using Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb; /* Modern Blue */
+            --primary-hover: #1d4ed8;
+            --danger-color: #ef4444;
+            --danger-hover: #dc2626;
+            --success-color: #10b981;
+            --success-hover: #059669;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-section h1 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .header-section p {
+            color: var(--text-muted);
+        }
+
+        /* Itinerary Container */
+        #itinerary-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Individual Day Card */
+        .day-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--bg-color);
+        }
+
+        .day-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .remove-btn:hover {
+            color: var(--danger-color);
+        }
+
+        /* Form Layout - Stacked fields since image is gone */
+        .form-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Inputs */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .form-control {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px; /* Slightly taller default height */
+            font-family: inherit;
+        }
+
+        /* Action Buttons */
+        .actions-bar {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+        .btn-success:hover {
+            background-color: var(--success-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        .btn-outline:hover {
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="header-section">
+        <h1><i class="fa-solid fa-route"></i> Tour Itinerary Builder</h1>
+        <p>Build your day-by-day travel plan below.</p>
+    </div>
+
+    <form id="tourForm" action="#" method="POST">
+        
+        <!-- Container for Repeater Items -->
+        <div id="itinerary-container">
+            <!-- Days will be injected here via JavaScript -->
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="actions-bar">
+            <button type="button" class="btn btn-outline" id="addDayBtn">
+                <i class="fa-solid fa-plus"></i> Add Day
+            </button>
+            
+            <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-save"></i> Save Itinerary
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const container = document.getElementById('itinerary-container');
+        const addBtn = document.getElementById('addDayBtn');
+        const form = document.getElementById('tourForm');
+
+        // Counter to keep track of number of items
+        let dayCount = 0;
+
+        // Template Function to generate HTML for a Day (NO IMAGE FIELD)
+        function createDayHTML(index) {
+            return `
+                <div class="day-card" data-index="${index}">
+                    <div class="day-header">
+                        <span class="day-badge">Day <span class="day-number">${index}</span></span>
+                        <button type="button" class="remove-btn" title="Remove this day">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="form-stack">
+                        <!-- Heading Input -->
+                        <div class="form-group">
+                            <label for="heading-${index}">Heading / Title</label>
+                            <input type="text" 
+                                   id="heading-${index}" 
+                                   name="itinerary[${index}][heading]" 
+                                   class="form-control" 
+                                   placeholder="e.g. Arrival in Paris & Check-in" 
+                                   required>
+                        </div>
+
+                        <!-- Description Textarea -->
+                        <div class="form-group">
+                            <label for="desc-${index}">Description & Activities</label>
+                            <textarea 
+                                id="desc-${index}" 
+                                name="itinerary[${index}][description]" 
+                                class="form-control" 
+                                placeholder="Detailed description of activities, meal plans, and logistics for this day..."
+                                rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to Add a New Day
+        function addDay() {
+            dayCount++;
+            const newDayHTML = createDayHTML(dayCount);
+            container.insertAdjacentHTML('beforeend', newDayHTML);
+            updateDayNumbers(); // Ensure numbering is correct
+        }
+
+        // Function to Update Day Numbers (Re-indexing)
+        // This ensures that if you delete Day 2, Day 3 becomes Day 2.
+        function updateDayNumbers() {
+            const cards = container.querySelectorAll('.day-card');
+            dayCount = cards.length;
+
+            if (dayCount === 0) {
+                container.innerHTML = '<div class="empty-state">No days added yet. Click "Add Day" to start.</div>';
+                return;
+            }
+
+            // Remove empty state if it exists
+            const emptyState = container.querySelector('.empty-state');
+            if (emptyState) emptyState.remove();
+
+            cards.forEach((card, index) => {
+                const visualIndex = index + 1; // 1-based for display
+                
+                // Update Badge Text
+                card.querySelector('.day-number').textContent = visualIndex;
+                
+                // Update Input Names for Backend Array
+                const arrayIndex = index; 
+
+                const headingInput = card.querySelector('input[type="text"]');
+                const descInput = card.querySelector('textarea');
+
+                if (headingInput) {
+                    headingInput.name = `itinerary[${arrayIndex}][heading]`;
+                    headingInput.id = `heading-${arrayIndex}`;
+                    
+                    // Also update label 'for' attribute to match new ID
+                    const headingLabel = card.querySelector(`label[for^="heading-"]`);
+                    if(headingLabel) headingLabel.setAttribute('for', `heading-${arrayIndex}`);
+                }
+
+                if (descInput) {
+                    descInput.name = `itinerary[${arrayIndex}][description]`;
+                    descInput.id = `desc-${arrayIndex}`;
+                    
+                    const descLabel = card.querySelector(`label[for^="desc-"]`);
+                    if(descLabel) descLabel.setAttribute('for', `desc-${arrayIndex}`);
+                }
+            });
+        }
+
+        // Event Listener for Remove Buttons (Event Delegation)
+        container.addEventListener('click', function(e) {
+            // Check if clicked element is a remove button or icon inside it
+            const btn = e.target.closest('.remove-btn');
+            if (!btn) return;
+
+            // Confirm deletion
+            if(confirm('Are you sure you want to remove this day?')) {
+                const card = btn.closest('.day-card');
+                
+                // Add fade-out animation effect
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                
+                setTimeout(() => {
+                    card.remove();
+                    updateDayNumbers(); // Re-calculate numbers after removal
+                }, 200);
+            }
+        });
+
+        // Initialize with Day 1
+        addDay();
+
+        // Add Button Click Handler
+        addBtn.addEventListener('click', addDay);
+
+        // Form Submit Handler (Demo purpose)
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            console.log("Form Submitted!");
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
+            alert('Itinerary saved! Check console for data.');
+        });
+    });
+</script>
+
+</body>
+</html>

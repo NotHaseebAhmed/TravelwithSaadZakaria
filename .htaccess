@@ -1,0 +1,109 @@
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /
+
+# ============================================
+# STEP 1: REDIRECT OLD URLs TO NEW STRUCTURE (301 Permanent)
+# Must come FIRST before any routing
+# ============================================
+
+# Home Page Redirects
+RewriteCond %{THE_REQUEST} \s/views/home\.php[\s?] [NC]
+RewriteRule ^ /? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/views/index\.php[\s?] [NC]
+RewriteRule ^ /? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/index\.php[\s?] [NC]
+RewriteRule ^ /? [R=301,L]
+
+# Contact Page Redirects
+RewriteCond %{THE_REQUEST} \s/views/contact\.php[\s?] [NC]
+RewriteRule ^ /contact-us/? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/views/contact-us\.php[\s?] [NC]
+RewriteRule ^ /contact-us/? [R=301,L]
+
+# Hotel Redirects
+RewriteCond %{THE_REQUEST} \s/hotels/hotel-list\.php[\s?] [NC]
+RewriteRule ^ /hotels/? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/hotels/hotel-details\.php\?slug=([^&\s]+) [NC]
+RewriteRule ^ /hotel/%1/? [R=301,L]
+
+# Car Rental Redirects
+RewriteCond %{THE_REQUEST} \s/car-rentals/car-rentals-list\.php[\s?] [NC]
+RewriteRule ^ /car-rentals/? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/car-rentals/car-rental-detail\.php\?slug=([^&\s]+) [NC]
+RewriteRule ^ /car-rental/%1/? [R=301,L]
+
+# Umrah Package Redirects
+RewriteCond %{THE_REQUEST} \s/umrah-packages/umrah-packages-list\.php[\s?] [NC]
+RewriteRule ^ /umrah-packages/? [R=301,L]
+
+RewriteCond %{THE_REQUEST} \s/umrah-packages/umrah-package-detail\.php\?slug=([^&\s]+) [NC]
+RewriteRule ^ /umrah-package/%1/? [R=301,L]
+
+# ============================================
+# STEP 2: CLEAN URL ROUTES
+# ============================================
+
+# Home Route
+RewriteRule ^$ views/home.php [L]
+RewriteRule ^home/?$ views/home.php [L]
+
+# Contact Route
+RewriteRule ^contact-us/?$ views/contact.php [L,QSA]
+
+# Hotel Routes
+RewriteRule ^hotels/?$ hotels/hotel-list.php [L,QSA]
+# RewriteRule ^hotels/([a-z0-9\-]+)/?$ hotels/hotel-list.php?location=$1 [L,QSA]
+RewriteRule ^hotel/([a-z0-9\-]+)/?$ hotels/hotel-details.php?slug=$1 [L,QSA]
+
+# Car Rental Routes
+RewriteRule ^car-rentals/?$ car-rentals/car-rentals-list.php [L,QSA]
+RewriteRule ^car-rental/([a-z0-9\-]+)/?$ car-rentals/car-rental-detail.php?slug=$1 [L,QSA]
+
+# Umrah Package Routes
+RewriteRule ^umrah-packages/?$ umrah-packages/umrah-packages-list.php [L,QSA]
+RewriteRule ^umrah-packages/(economy|business|premium)/?$ umrah-packages/umrah-packages-list.php?type=$1 [L,QSA]
+RewriteRule ^umrah-package/([a-z0-9\-]+)/?$ umrah-packages/umrah-package-detail.php?slug=$1 [L,QSA]
+
+# Location Routes
+RewriteRule ^locations/?$ locations/location-list.php [L,QSA]
+
+# Booking Routes
+RewriteRule ^booking/confirm/?$ booking/confirm.php [L,QSA]
+RewriteRule ^booking/success/?$ booking/success.php [L,QSA]
+
+# ============================================
+# STEP 3: GENERAL RULES
+# ============================================
+
+# Remove .php extension from URLs (for other files)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Force trailing slash (MUST come after specific routes)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteCond %{REQUEST_URI} !\.(php|html|css|js|jpg|jpeg|png|gif|svg|ico|pdf|zip)$ [NC]
+RewriteRule ^(.*)$ $1/ [L,R=301]
+
+# ============================================
+# SECURITY & OPTIMIZATION
+# ============================================
+
+# Prevent directory browsing
+Options -Indexes
+
+# Custom Error Pages
+ErrorDocument 404 /404.php
+ErrorDocument 500 /500.php
+
+# Force HTTPS (uncomment for production)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
