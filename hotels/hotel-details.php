@@ -249,7 +249,7 @@ if (!isset($images) || !is_array($images)) {
           $imgPath = is_array($img) ? ($img['image_path'] ?? '') : $img;
           if (!$imgPath) continue;
 
-          $fullPath = "/travel-panel/assets/uploads/hotels/" . htmlspecialchars($imgPath);
+          $fullPath = BASE_URL . "/travel-panel/assets/uploads/hotels/" . htmlspecialchars($imgPath);
         ?>
 
           <?php if ($index === 0): ?>
@@ -290,7 +290,7 @@ if (!isset($images) || !is_array($images)) {
                       $gPath = is_array($gImg) ? ($gImg['image_path'] ?? '') : $gImg;
                       if (!$gPath) continue;
                     ?>
-                      <a href="/travel-panel/assets/uploads/hotels/<?= htmlspecialchars($gPath) ?>"
+                      <a href="<?= BASE_URL ?>/travel-panel/assets/uploads/hotels/<?= htmlspecialchars($gPath) ?>"
                         class="glightbox" data-gallery="edu-gallery3"></a>
                     <?php endforeach; ?>
                   </div>
@@ -528,7 +528,7 @@ if (!isset($images) || !is_array($images)) {
 
                     <div class="ratio ratio-1:1">
                       <img
-                        src="/travel-panel/<?= htmlspecialchars($room['image_path']) ?>" alt="<?= htmlspecialchars($hotel['hotel_title']) ?>" class="img-ratio rounded-4" style="width: 160px;height:140px;object-fit:cover;position:relative;">
+                        src="<?= BASE_URL ?>/travel-panel/<?= htmlspecialchars($room['image_path']) ?>" alt="<?= htmlspecialchars($hotel['hotel_title']) ?>" class="img-ratio rounded-4" style="width: 160px;height:140px;object-fit:cover;position:relative;">
                       <h4><?= htmlspecialchars($room['room_title']) ?></h4>
                     </div>
                     <div class="roomGrid__content">
@@ -688,7 +688,7 @@ if (!isset($images) || !is_array($images)) {
               <div class="roomGrid__grid">
 
                 <div class="ratio ratio-1:1" style="width: 160px;height:160px;">
-                  <img src="../assets/img/backgrounds/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/backgrounds/1.png" alt="image" class="img-ratio rounded-4">
                   <h4>
                     Deluxe Double Room
                   </h4>
@@ -1175,7 +1175,7 @@ if (!isset($images) || !is_array($images)) {
           <div class="row x-gap-20 y-gap-20 items-center">
             <div class="col-auto">
               <div class="flex-center size-60 rounded-full bg-white">
-                <img src="../assets/img/icons/health.svg" alt="icon">
+                <img src="<?= BASE_URL ?>/assets/img/icons/health.svg" alt="icon">
               </div>
             </div>
 
@@ -1765,7 +1765,7 @@ if (!isset($images) || !is_array($images)) {
             <div class="cardImage ratio ratio-1:1">
               <div class="cardImage__content">
 
-                <img class="rounded-4 col-12" src="../assets/img/hotels/1.png" alt="image">
+                <img class="rounded-4 col-12" src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image">
 
 
               </div>
@@ -1823,15 +1823,15 @@ if (!isset($images) || !is_array($images)) {
                   <div class="swiper-wrapper">
 
                     <div class="swiper-slide">
-                      <img class="col-12" src="../assets/img/hotels/2.png" alt="image">
+                      <img class="col-12" src="<?= BASE_URL ?>/assets/img/hotels/2.png" alt="image">
                     </div>
 
                     <div class="swiper-slide">
-                      <img class="col-12" src="../assets/img/hotels/1.png" alt="image">
+                      <img class="col-12" src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image">
                     </div>
 
                     <div class="swiper-slide">
-                      <img class="col-12" src="../assets/img/hotels/3.png" alt="image">
+                      <img class="col-12" src="<?= BASE_URL ?>/assets/img/hotels/3.png" alt="image">
                     </div>
 
                   </div>
@@ -1895,7 +1895,7 @@ if (!isset($images) || !is_array($images)) {
             <div class="cardImage ratio ratio-1:1">
               <div class="cardImage__content">
 
-                <img class="rounded-4 col-12" src="../assets/img/hotels/3.png" alt="image">
+                <img class="rounded-4 col-12" src="<?= BASE_URL ?>/assets/img/hotels/3.png" alt="image">
 
 
               </div>
@@ -1948,7 +1948,7 @@ if (!isset($images) || !is_array($images)) {
             <div class="cardImage ratio ratio-1:1">
               <div class="cardImage__content">
 
-                <img class="rounded-4 col-12" src="../assets/img/hotels/4.png" alt="image">
+                <img class="rounded-4 col-12" src="<?= BASE_URL ?>/assets/img/hotels/4.png" alt="image">
 
 
               </div>
@@ -2262,7 +2262,7 @@ document.addEventListener("DOMContentLoaded", function() {
             checkBtn.textContent = 'Loading...';
 
             // Send AJAX request
-            fetch('/hotels/fetch_room_prices.php', {
+            fetch('<?= BASE_URL ?>/hotels/fetch_room_prices.php', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -2486,7 +2486,7 @@ document.addEventListener("DOMContentLoaded", function() {
             this.textContent = 'Processing...';
 
             // Submit booking
-            fetch('/hotels/process_booking.php', {
+            fetch('process_booking.php', {
                 method: 'POST',
                 body: formData
             })

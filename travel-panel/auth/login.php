@@ -1,4 +1,6 @@
-<?php
+ <?php
+ define('BASE_URL23', '/TravelwithSaadZakaria');
+
 /**
  * Admin Login Page
  * Save as: travel-panel/auth/login.php
@@ -12,7 +14,7 @@ start_secure_session();
 
 // Redirect if already logged in
 if (is_logged_in()) {
-    header('Location: /travelwithsaadzakaria/travel-panel/index.php');
+    header('Location: ' . BASE_URL23 . '/travel-panel/index.php');
     exit;
 }
 
@@ -28,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $login_result = login_user($conn, $username, $password, $csrf_token);
     
     if ($login_result['success']) {
-        $redirect = $_SESSION['redirect_after_login'] ?? '/travelwithsaadzakaria/travel-panel/index.php';
+        $redirect = $_SESSION['redirect_after_login'] ?? BASE_URL23 . '/travel-panel/index.php';
         unset($_SESSION['redirect_after_login']);
         header('Location: ' . $redirect);
         exit;

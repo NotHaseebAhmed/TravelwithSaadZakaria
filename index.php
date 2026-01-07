@@ -5,9 +5,24 @@
  */
 
 // Base URL of your site (change this to your actual domain)
-define('BASE_URL', 'https://mediumpurple-owl-347580.hostingersite.com');
+// define('BASE_URL', '/');
 // For local development:
-// define('BASE_URL', 'http://localhost/travelwithsaadzakaria');
+// Detect protocol (http / https)
+
+
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'];
+
+// Project folder name on localhost
+$localProjectFolder = 'TravelwithSaadZakaria';
+
+if ($host === 'localhost') {
+    // Local environment
+    define('BASE_URL', $protocol . '://' . $host . '/' . $localProjectFolder);
+} else {
+    // Hosting environment
+    define('BASE_URL', $protocol . '://' . $host);
+}
 
 /**
  * Generate Home URL
@@ -16,6 +31,7 @@ define('BASE_URL', 'https://mediumpurple-owl-347580.hostingersite.com');
 function get_home_url() {
     return BASE_URL . '/';
 }
+
 
 /**
  * Generate Contact Us URL
@@ -98,22 +114,22 @@ function get_locations_url() {
  * Generate Booking Confirmation URL
  * @return string
  */
-function get_booking_confirm_url() {
-    return BASE_URL . '/booking/confirm/';
-}
+// function get_booking_confirm_url() {
+//     return BASE_URL . '/booking/confirm/';
+// }
 
-/**
- * Generate Booking Success URL
- * @param int $booking_id Optional
- * @return string
- */
-function get_booking_success_url($booking_id = null) {
-    $url = BASE_URL . '/booking/success/';
-    if ($booking_id) {
-        $url .= '?id=' . $booking_id;
-    }
-    return $url;
-}
+// /**
+//  * Generate Booking Success URL
+//  * @param int $booking_id Optional
+//  * @return string
+//  */
+// function get_booking_success_url($booking_id = null) {
+//     $url = BASE_URL . '/booking/success/';
+//     if ($booking_id) {
+//         $url .= '?id=' . $booking_id;
+//     }
+//     return $url;
+// }
 
 /**
  * Get Current URL

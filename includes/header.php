@@ -1,6 +1,6 @@
-<?php
+ <?php
 require_once __DIR__ . '/../index.php';
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
@@ -20,10 +20,10 @@ require_once __DIR__ . '/../index.php';
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/assets/css/vendors.css">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/travel-panel/assets/vendor/flatpickr/flatpickr.min.css">
-  <link href="/assets/vendor/slelect2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/vendors.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/main.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/travel-panel/assets/vendor/flatpickr/flatpickr.min.css">
+  <link href="<?= BASE_URL ?>/assets/vendor/slelect2.min.css" rel="stylesheet" />
 
   <title>GoTrip</title>
 </head>
@@ -58,9 +58,9 @@ require_once __DIR__ . '/../index.php';
 
           <div class="col-auto">
             <div class="d-flex items-center">
-              <a href="<?=get_home_url() ?>" class="header-logo mr-30" data-x="header-logo" data-x-toggle="is-logo-dark">
-                <img src="/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="logo icon">
-                 <img src="/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="logo icon">              </a>
+              <a href="<?= BASE_URL ?>" class="header-logo mr-30" data-x="header-logo" data-x-toggle="is-logo-dark">
+                <img src="<?= BASE_URL ?>/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="logo icon">
+                 <img src="<?= BASE_URL ?>/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="logo icon">              </a>
 
 
               <div class="header-menu " data-x="mobile-menu" data-x-toggle="is-menu-active">
@@ -73,7 +73,7 @@ require_once __DIR__ . '/../index.php';
                     <ul class="menu__nav text-dark-1 -is-active">
 
                       <li>
-                        <a href="<?= get_hotels_url() ?>">
+                        <a href="<?= BASE_URL ?>/hotels">
                          Hotels
                          
                         </a>
@@ -81,20 +81,20 @@ require_once __DIR__ . '/../index.php';
 
 
                       <li>
-                        <a  href="<?= get_umrah_packages_url() ?> ">
+                        <a  href="<?= BASE_URL ?>/umrah-packages">
                         Umrah Packages
                           
                         </a>
                       </li>
 
                       <li>
-                        <a href="<?= get_car_rentals_url() ?>">
+                        <a href="<?= BASE_URL ?>/car-rentals">
                           Car Rentals
                         </a>
                       </li>
 
                       <li>
-                        <a href="car-rentals.html">
+                        <a href="<?= BASE_URL ?>/tours">
                           Tours
                         </a>
                       </li>
@@ -138,7 +138,7 @@ require_once __DIR__ . '/../index.php';
 
                 <div class="col-auto">
                   <button class="d-flex items-center text-14 text-dark-1" data-x-click="lang">
-                    <img src="/assets/img/general/lang.png" alt="image" class="rounded-full mr-10">
+                    <img src="<?= BASE_URL ?>/assets/img/general/lang.png" alt="image" class="rounded-full mr-10">
                     <span class="js-language-mainTitle">United Kingdom</span>
                     <i class="icon-chevron-sm-down text-7 ml-15"></i>
                   </button>

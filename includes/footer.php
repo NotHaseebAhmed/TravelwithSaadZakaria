@@ -1126,7 +1126,7 @@
             <div class="row x-gap-20 y-gap-20">
               <div class="col-md-auto">
                 <div class="ratio ratio-1:1 size-120">
-                  <img src="../assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
                 </div>
               </div>
 
@@ -1181,7 +1181,7 @@
             <div class="row x-gap-20 y-gap-20">
               <div class="col-md-auto">
                 <div class="ratio ratio-1:1 size-120">
-                  <img src="../assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
                 </div>
               </div>
 
@@ -1236,7 +1236,7 @@
             <div class="row x-gap-20 y-gap-20">
               <div class="col-md-auto">
                 <div class="ratio ratio-1:1 size-120">
-                  <img src="../assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
                 </div>
               </div>
 
@@ -1291,7 +1291,7 @@
             <div class="row x-gap-20 y-gap-20">
               <div class="col-md-auto">
                 <div class="ratio ratio-1:1 size-120">
-                  <img src="../assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
                 </div>
               </div>
 
@@ -1346,7 +1346,7 @@
             <div class="row x-gap-20 y-gap-20">
               <div class="col-md-auto">
                 <div class="ratio ratio-1:1 size-120">
-                  <img src="../assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
                 </div>
               </div>
 
@@ -1401,7 +1401,7 @@
             <div class="row x-gap-20 y-gap-20">
               <div class="col-md-auto">
                 <div class="ratio ratio-1:1 size-120">
-                  <img src="../assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
                 </div>
               </div>
 
@@ -1456,7 +1456,7 @@
             <div class="row x-gap-20 y-gap-20">
               <div class="col-md-auto">
                 <div class="ratio ratio-1:1 size-120">
-                  <img src="../assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
+                  <img src="<?= BASE_URL ?>/assets/img/hotels/1.png" alt="image" class="img-ratio rounded-4">
                 </div>
               </div>
 
@@ -1522,10 +1522,10 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
-  <script src="/assets/js/vendors.js"></script>
-  <script src="/assets/js/main.js"></script>
-  <script src="/travel-panel/assets/vendor/flatpickr/flatpickr.min.js"></script>
-  <script src="/assets/vendor/select2.min.js"></script>
+  <script src="<?= BASE_URL ?>/assets/js/vendors.js"></script>
+  <script src="<?= BASE_URL ?>/assets/js/main.js"></script>
+  <script src="<?= BASE_URL ?>/travel-panel/assets/vendor/flatpickr/flatpickr.min.js"></script>
+  <script src="<?= BASE_URL ?>/assets/vendor/select2.min.js"></script>
   <!-- <script src="../travel-panel/assets/js/vendor.min.js"></script> -->
   
  <!-- <script>

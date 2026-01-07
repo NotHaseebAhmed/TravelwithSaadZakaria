@@ -6,7 +6,8 @@
  */
 
 header('Content-Type: application/json');
-include_once __DIR__ . '/../travel-panel/includes/connection.php';
+include_once __DIR__ . '/../travel-panel/includes/connection.php'; 
+
 
 // Get unique locations from locations table
 $query = $conn->query("

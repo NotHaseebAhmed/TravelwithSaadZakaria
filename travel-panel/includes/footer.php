@@ -202,28 +202,28 @@
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
         <!-- Vendor js -->
-        <script src="/travel-panel/assets/js/vendor.min.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/js/vendor.min.js"></script>
 
         <!-- App js -->
-        <script src="/travel-panel/assets/js/app.min.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/js/app.min.js"></script>
 
         <!-- Bootstrap Maxlength Plugin js -->
-        <script src="/travel-panel/assets/vendor/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/vendor/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
 
         <!-- Dashboard App js -->
-        <script src="/travel-panel/assets/js/pages/demo.dashboard.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/js/pages/demo.dashboard.js"></script>
 
         <!-- Flatpickr Timepicker Plugin js -->
-        <script src="/travel-panel/assets/vendor/flatpickr/flatpickr.min.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/vendor/flatpickr/flatpickr.min.js"></script>
 
         <!-- File Upload Demo js -->
-        <script src="/travel-panel/assets/js/pages/component.fileupload.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/js/pages/component.fileupload.js"></script>
 
         <!-- Typehead Plugin js -->
-        <script src="/travel-panel/assets/vendor/handlebars/handlebars.min.js"></script>
-        <script src="/travel-panel/assets/vendor/typeahead.js/typeahead.bundle.min.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/vendor/handlebars/handlebars.min.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/vendor/typeahead.js/typeahead.bundle.min.js"></script>
         <!-- select2 js -->
-      <script src="/assets/vendor/select2.min.js"></script>
+      <script src="<?= BASE_URL ?>/travel-panel/assets/vendor/select2.min.js"></script>
 
       
 

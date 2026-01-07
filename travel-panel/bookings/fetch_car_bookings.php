@@ -7,10 +7,10 @@
 header('Content-Type: application/json');
 header('Cache-Control: no-cache, must-revalidate');
 
-require_once __DIR__ . '/../includes/connection.php';
-require_once __DIR__ . '/../includes/auth_functions.php';
+// require_once __DIR__ . '/../includes/connection.php';
+// require_once __DIR__ . '/../includes/auth_functions.php';
 
-start_secure_session();
+// start_secure_session();
 
 // Check if user is logged in
 if (!is_logged_in()) {

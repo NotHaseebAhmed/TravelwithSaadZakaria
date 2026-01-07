@@ -93,7 +93,7 @@
       <div class="col-xl-3 col-lg-4 lg:d-none">
         <aside class="sidebar y-gap-40">
           <div class="sidebar__item -no-border">
-            <div class="flex-center ratio ratio-15:9 js-lazy" data-bg="../assets/img/general/map.png">
+            <div class="flex-center ratio ratio-15:9 js-lazy" data-bg="<?= BASE_URL ?>/assets/img/general/map.png">
               <button class="button py-15 px-24 -blue-1 bg-white text-dark-1 absolute" data-x-click="mapFilter">
                 <i class="icon-destination text-22 mr-10"></i>
                 Show on map
@@ -663,7 +663,7 @@
             </div>
 
             <div class="sidebar__item">
-              <div class="flex-center ratio ratio-15:9 js-lazy" data-bg="../assets/img/general/map.png">
+              <div class="flex-center ratio ratio-15:9 js-lazy" data-bg="<?=BASE_URL?>/assets/img/general/map.png">
                 <button class="button py-15 px-24 -blue-1 bg-white text-dark-1 absolute" data-x-click="mapFilter">
                   <i class="icon-destination text-22 mr-10"></i>
                   Show on map
@@ -1339,12 +1339,12 @@
                                 <?php foreach ($hotel['images'] as $img): ?>
                                   <div class="swiper-slide">
                                     <img class="col-12"
-                                      src="/travel-panel/assets/uploads/hotels/<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($hotel['hotel_title']) ?>">
+                                      src="<?= BASE_URL ?>/travel-panel/assets/uploads/hotels/<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($hotel['hotel_title']) ?>">
                                   </div>
                                 <?php endforeach; ?>
                               <?php else: ?>
                                 <div class="swiper-slide">
-                                  <img class="col-12" src="../assets/img/no-image.jpg" alt="No image">
+                                  <img class="col-12" src="<?=BASE_URL?>/assets/img/no-image.jpg" alt="No image">
                                 </div>
                               <?php endif; ?>
 
@@ -1637,7 +1637,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Load locations from database
     function loadLocations() {
-        fetch('/hotels/get_locations.php')
+        fetch('get_locations.php')
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
@@ -1776,7 +1776,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append('numRooms', numRooms);
         
         // Send AJAX request
-        fetch('/hotels/search_hotels.php', {
+        fetch('search_hotels.php', {
             method: 'POST',
             body: formData
         })
@@ -1832,7 +1832,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     imagesHtml += `
                         <div class="swiper-slide">
                             <img class="col-12" 
-                                 src="/travel-panel/assets/uploads/hotels/${img}" 
+                                 src="<?=BASE_URL?>/travel-panel/assets/uploads/hotels/${img}" 
                                  alt="${hotel.hotel_title}">
                         </div>
                     `;
@@ -1840,7 +1840,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 imagesHtml = `
                     <div class="swiper-slide">
-                        <img class="col-12" src="../assets/img/no-image.jpg" alt="No image">
+                        <img class="col-12" src="<?=BASE_URL?>/assets/img/no-image.jpg" alt="No image">
                     </div>
                 `;
             }
@@ -1941,7 +1941,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     </div>
                                     <div class="text-14 text-light-1 mt-5">+taxes and charges</div>
 
-                                    <a href="/hotel/${hotel.hotel_slug}?${buildDetailParams(filters)}" 
+                                    <a href="<?= BASE_URL ?>/hotel/${hotel.hotel_slug}?${buildDetailParams(filters)}" 
                                        class="button -md -dark-1 bg-blue-1 text-white mt-24">
                                         See Availability <div class="icon-arrow-top-right ml-15"></div>
                                     </a>

@@ -6,10 +6,10 @@
                 <!-- Brand Logo Dark -->
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-lg">
-                        <img src="/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="dark logo">
+                        <img src="<?= BASE_URL ?>/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="dark logo">
                     </span>
                     <span class="logo-sm">
-                        <img src="/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="small logo">
+                        <img src="<?= BASE_URL ?>/assets/img/logo/Travelwithsaadzakaria-logo.png" alt="small logo">
                     </span>
                 </a>
 
@@ -29,7 +29,7 @@
                     <div class="leftbar-user p-3 text-white">
                         <a href="pages-profile.html" class="d-flex align-items-center text-reset">
                             <div class="flex-shrink-0">
-                                <img src="/travel-panel/assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow">
+                                <img src="<?= BASE_URL ?>/travel-panel/assets/images/users/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow">
                             </div>
                             <div class="flex-grow-1 ms-2">
                                 <span class="fw-semibold fs-15 d-block">Haseeb Ahmed</span>
@@ -59,13 +59,13 @@
                             <div class="collapse" id="sidebarEmail">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="/travel-panel/bookings/hotel-booking.php">Hotels</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/bookings/hotel-booking.php">Hotels</a>
                                     </li>
                                     <li>
-                                        <a href="/travel-panel/bookings/umrah-package-booking.php">Umrah Packages</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/bookings/umrah-package-booking.php">Umrah Packages</a>
                                     </li>
                                      <li>
-                                        <a href="/travel-panel/bookings/car-rental-booking.php">Car rentals</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/bookings/car-rental-booking.php">Car rentals</a>
                                     </li>
                                     
                                 </ul>
@@ -81,10 +81,10 @@
                             <div class="collapse" id="sidebarEmail">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="/travel-panel/hotels/add-new-hotel.php">Add a new Hotel</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/hotels/add-new-hotel.php">Add a new Hotel</a>
                                     </li>
                                     <li>
-                                        <a href="/travel-panel/hotels/add-new-room.php">Add a New Room</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/hotels/add-new-room.php">Add a New Room</a>
                                     </li>
                                      <li>
                                         <a href="apps-email-inbox.html">All Hotels</a>
@@ -105,7 +105,7 @@
                             <div class="collapse" id="sidebarTasks">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="/travel-panel/umrah-packages/add-new-tour.php">Add a new Package</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/umrah-packages/add-new-tour.php">Add a new Package</a>
                                     </li>
                                     <li>
                                         <a href="apps-tasks-details.html">All Packages</a>
@@ -124,10 +124,10 @@
                             <div class="collapse" id="sidebarTasks">
                                 <ul class="side-nav-second-level">
                                     <li>
-                                        <a href="/travel-panel/car-rentals/add-new-car-rental.php">Add a new Car Rental</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/car-rentals/add-new-car-rental.php">Add a new Car Rental</a>
                                     </li>
                                     <li>
-                                        <a href="/travel-panel/car-rentals/routes.php">Add a new Route</a>
+                                        <a href="<?= BASE_URL ?>/travel-panel/car-rentals/routes.php">Add a new Route</a>
                                     </li>
                                      <li>
                                         <a href="apps-tasks-details.html">All Car Rentals</a>

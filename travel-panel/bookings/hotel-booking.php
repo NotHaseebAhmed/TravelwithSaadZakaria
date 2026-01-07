@@ -25,6 +25,9 @@ require_once __DIR__ . '/../includes/auth_functions.php';
 start_secure_session();
 require_login();
 
+include_once __DIR__ . '/../includes/header.php';
+include_once __DIR__ . '/../includes/sidebar.php';
+
 // Include your header
 // include 'includes/header.php';
 ?>

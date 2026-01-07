@@ -3,6 +3,10 @@ include('auth_functions.php');
 start_secure_session();
 require_login();
 ?>
+ <?php
+define('BASE_URL', 'http://localhost/TravelwithSaadZakaria');
+// require_once __DIR__ . '/../index.php';
+?> 
 <?php
 // Include database connection (if needed globally)
 include('connection.php');
@@ -21,32 +25,32 @@ include('connection.php');
         <meta content="mannatthemes" name="author" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="/travel-panel/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="<?= BASE_URL ?>/travel-panel/assets/images/favicon.ico">
 
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
                 <!-- Daterangepicker css -->
-        <link rel="stylesheet" href="//travel-panel/assets/vendor/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" href="<?= BASE_URL ?>/travel-panel/assets/vendor/daterangepicker/daterangepicker.css">
       
          <!-- select 2 library -->
-        <link href="/assets/vendor/slelect2.min.css" rel="stylesheet" />
+        <link href="<?= BASE_URL ?>/travel-panel/assets/vendor/slelect2.min.css" rel="stylesheet" />
 
            <!-- Flatpickr Timepicker css -->
-        <link href="/travel-panel/assets/vendor/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= BASE_URL ?>/travel-panel/assets/vendor/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Vector Map css -->
-        <link rel="stylesheet" href="/travel-panel/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css">
+        <link rel="stylesheet" href="<?= BASE_URL ?>/travel-panel/assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css">
 
         <!-- Theme Config Js -->
-        <script src="/travel-panel/assets/js/config.js"></script>
+        <script src="<?= BASE_URL ?>/travel-panel/assets/js/config.js"></script>
 
         <!-- App css -->
-        <link href="/travel-panel/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+        <link href="<?= BASE_URL ?>/travel-panel/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
         <!-- Icons css -->
-        <link href="/travel-panel/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= BASE_URL ?>/travel-panel/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Admin css -->
-         <link rel="stylesheet" href="/travel-panel/assets/css/admin.css"  type="text/css">
+         <link rel="stylesheet" href="<?= BASE_URL ?>/travel-panel/assets/css/admin.css"  type="text/css">
          
 </head>
 
@@ -65,20 +69,20 @@ include('connection.php');
                             <!-- Logo light -->
                             <a href="index.html" class="logo-light">
                                 <span class="logo-lg">
-                                    <img src="/travel-panel/assets/images/logo.png" alt="logo">
+                                    <img src="<?= BASE_URL ?>/travel-panel/assets/images/logo.png" alt="logo">
                                 </span>
                                 <span class="logo-sm">
-                                    <img src="/travel-panel/assets/images/logo-sm.png" alt="small logo">
+                                    <img src="<?= BASE_URL ?>/travel-panel/assets/images/logo-sm.png" alt="small logo">
                                 </span>
                             </a>
 
                             <!-- Logo Dark -->
                             <a href="index.html" class="logo-dark">
                                 <span class="logo-lg">
-                                    <img src="/travel-panel/assets/images/logo-dark.png" alt="dark logo">
+                                    <img src="<?= BASE_URL ?>/travel-panel/assets/images/logo-dark.png" alt="dark logo">
                                 </span>
                                 <span class="logo-sm">
-                                    <img src="/travel-panel/assets/images/logo-sm.png" alt="small logo">
+                                    <img src="<?= BASE_URL ?>/travel-panel/assets/images/logo-sm.png" alt="small logo">
                                 </span>
                             </a>
                         </div>
@@ -125,7 +129,7 @@ include('connection.php');
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="/travel-panel/assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
+                                            <img class="d-flex me-2 rounded-circle" src="<?= BASE_URL ?>/travel-panel/assets/images/users/avatar-2.jpg" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 fs-14">Erwin Brown</h5>
                                                 <span class="fs-12 mb-0">UI Designer</span>
@@ -136,7 +140,7 @@ include('connection.php');
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex">
-                                            <img class="d-flex me-2 rounded-circle" src="/travel-panel/assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
+                                            <img class="d-flex me-2 rounded-circle" src="<?= BASE_URL ?>/travel-panel/assets/images/users/avatar-5.jpg" alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 fs-14">Jacob Deo</h5>
                                                 <span class="fs-12 mb-0">Developer</span>
@@ -227,7 +231,7 @@ include('connection.php');
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-shrink-0">
                                                     <div class="notify-icon">
-                                                        <img src="/travel-panel/assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
+                                                        <img src="<?= BASE_URL ?>/travel-panel/assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1 text-truncate ms-2">
@@ -263,7 +267,7 @@ include('connection.php');
                                             <div class="d-flex align-items-center">
                                                 <div class="flex-shrink-0">
                                                     <div class="notify-icon">
-                                                        <img src="/travel-panel/assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" />
+                                                        <img src="<?= BASE_URL ?>/travel-panel/assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1 text-truncate ms-2">

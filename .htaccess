@@ -1,6 +1,6 @@
 # Enable Rewrite Engine
 RewriteEngine On
-RewriteBase /
+RewriteBase /TravelwithSaadZakaria/
 
 # ============================================
 # STEP 1: REDIRECT OLD URLs TO NEW STRUCTURE (301 Permanent)

@@ -6,10 +6,10 @@
 // ===========================================
 
 // Database credentials
-$host = getenv('DB_HOST');        // usually 'localhost'
-$username = getenv('DB_USER');          // your MySQL username
-$password = getenv('DB_PASSWORD');              // your MySQL password
-$database = getenv('DB_NAME'); // your database name
+$host = 'Localhost';        // usually 'localhost'
+$username = 'root';          // your MySQL username
+$password = '';              // your MySQL password
+$database = 'travel_with_saad'; // your database name
 
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);
